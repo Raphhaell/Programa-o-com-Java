@@ -1,0 +1,48 @@
+/*Criar a aplicação conta corrente contendo os métodos sacar, depositar e transferir.
+*Poderá ser feito em dupla ou em trio e deverá constar o primeiro nome do aluno na aplicação.
+*Tirar o print da aplicação contendo a execução e parte do código. 
+*/
+
+Códigos da classe Aplica:
+
+
+package aplica;
+public class Aplica {
+public static void main(String[] args) {
+Conta c1 = new Conta();
+c1.nome = "Flávia";
+c1.valor = 50.00;
+Conta c2 = new Conta();
+c2.nome = "Maria";
+c2.valor = 40.00;
+Conta c3 = new Conta();
+c3.nome = "Raphael";
+c3.valor = 60.00;
+c1.transferir (30.00, c3);
+c3.sacar (20.00);
+c2.depositar (10.00);
+System.out.println(c1.nome + " transferiu " + c3.valor + "reais.");
+System.out.println(c2.nome + " depositou " + c2.valor + "reais.");
+System.out.println(c3.nome + " sacou " + c3.valor + "reais.");
+}
+}
+
+
+
+Codigo classe Conta:
+
+package aplica;
+public class Conta {
+String nome;
+double valor;
+void depositar (double valor){
+this.valor += valor;
+}
+void transferir (double valor, Conta c) {
+this.valor -= valor;
+c.depositar (valor);
+}
+void sacar (double valor) {
+this.valor -= valor;
+}
+}
